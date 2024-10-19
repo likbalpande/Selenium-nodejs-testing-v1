@@ -19,9 +19,10 @@ app.get("/test", (req, res) => {
         // .loggingTo("chrome-logs.txt").enableVerboseLogging()
         .build();
     const By = webdriver.By;
-    let options = new chrome.Options({
-        arguments: "--remote-debugging-pipe",
-    });
+    let options = new chrome.Options();
+    options.addArguments("--no-sandbox");
+    options.addArguments("--headless=chrome");
+    options.addArguments("--remote-debugging-pipee");
 
     let driver = chrome.Driver.createSession(options, service);
     console.log("-----------------------------");
