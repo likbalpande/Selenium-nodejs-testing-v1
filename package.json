@@ -1,0 +1,17 @@
+{
+  "name": "selenium-on-server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^129.0.4",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "selenium-webdriver": "^4.25.0"
+  }
+}
