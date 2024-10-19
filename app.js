@@ -5,7 +5,8 @@ const port = 1011;
 const app = express();
 const __dirname = import.meta.dirname;
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
+    console.log("---------default API--------------");
     res.send(`<html>
         <body>
             <div class="container" style="color:#ff00ff;">Hello from API SSR</div>
@@ -13,12 +14,14 @@ app.get("/home", (req, res) => {
     </html>`);
 });
 
-app.get("/", (req, res) => {
+app.get("/test", (req, res) => {
     let service = new chrome.ServiceBuilder()
         // .loggingTo("chrome-logs.txt").enableVerboseLogging()
         .build();
     const By = webdriver.By;
-    let options = new chrome.Options();
+    let options = new chrome.Options({
+        arguments: "--remote-debugging-pipe",
+    });
 
     let driver = chrome.Driver.createSession(options, service);
     console.log("-----------------------------");
